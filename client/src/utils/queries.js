@@ -1,5 +1,7 @@
 import gql from 'graphql-tag';
 
+
+// query for all thoughts
 export const QUERY_THOUGHTS = gql`
   query thoughts($username: String) {
     thoughts(username: $username) {
@@ -18,6 +20,7 @@ export const QUERY_THOUGHTS = gql`
   }
 `;
 
+// query for a single thought
 export const QUERY_THOUGHT = gql`
   query thought($id: ID!) {
     thought(_id: $id) {
@@ -31,6 +34,28 @@ export const QUERY_THOUGHT = gql`
         createdAt
         username
         reactionBody
+      }
+    }
+  }
+`;
+
+// profile query for user
+export const QUERY_USER = gql`
+  query user($username: String!) {
+    user(username: $username) {
+      _id
+      username
+      email
+      friendCount
+      friends {
+        _id
+        username
+      }
+      thoughts {
+        _id
+        thoughtText
+        createdAt
+        reactionCount
       }
     }
   }
