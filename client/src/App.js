@@ -28,6 +28,17 @@ import Home from './pages/Home';
 // });
 // after react team created fix
 const client = new ApolloClient({
+  request: operation => {
+    const token = localStorage.getItem('id_token');
+
+    operation.setContext({
+      // populates the header session that will talk to apollo
+      headers: { //if token availalble set to Bearer x if not blank 
+        // '' or blank means not authenticated
+        authorization: token ? `Bearer ${token}` : ''
+      }
+    });
+  },
   // this is seetting the enviroment to development as it is a 
   // relative path?
   uri: '/graphql'
