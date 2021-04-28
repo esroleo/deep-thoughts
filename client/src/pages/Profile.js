@@ -10,6 +10,7 @@ import ThoughtList from '../components/ThoughtList';
 import FriendList from '../components/FriendList';
 // import the ThoughtForm
 import ThoughtForm from '../components/ThoughtForm';
+
 // allow talking to graphql via apollo with useQuery and useMutation
 import { useQuery, useMutation } from '@apollo/react-hooks';
 // allow our queries to run against apollo

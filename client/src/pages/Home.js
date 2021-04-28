@@ -12,6 +12,7 @@ import FriendList from '../components/FriendList';
 // import the ThoughtForm
 import ThoughtForm from '../components/ThoughtForm';
 
+
 const Home = () => {
   // use useQuery hook to make query request
   const { loading, data } = useQuery(QUERY_THOUGHTS);
