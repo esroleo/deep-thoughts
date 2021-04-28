@@ -25,3 +25,18 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+// add friend, will be used fromm the profile page.
+export const ADD_FRIEND = gql`
+  mutation addFriend($id: ID!) {
+    addFriend(friendId: $id) {
+      _id
+      username
+      friendCount
+      friends {
+        _id
+        username
+      }
+    }
+  }
+`;
