@@ -10,8 +10,13 @@ import Home from './pages/Home';
 
 
 // Connection to graphQL server using apollo
+// before react app team created fix
+// const client = new ApolloClient({
+//   uri: 'http://localhost:3001/graphql'
+// });
+// after react team created fix
 const client = new ApolloClient({
-  uri: 'http://localhost:3001/graphql'
+  uri: '/graphql'
 });
 
 function App() {

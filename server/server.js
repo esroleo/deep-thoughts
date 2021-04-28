@@ -1,3 +1,5 @@
+// import the path module
+const path = require('path');
 const express = require('express');
 // import ApolloServer
 const { ApolloServer } = require('apollo-server-express');
@@ -28,6 +30,21 @@ server.applyMiddleware({ app });
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+
+// Serve up static assets
+// Back end code to serve up React front-end code in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/build')));
+}
+
+// wildcard get route for the server. If we make a get request 
+// to any location on the server that doesn't have an explicit
+// route defined, respond with the production -ready react front-end codde
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
+
 
 db.once('open', () => {
   app.listen(PORT, () => {
