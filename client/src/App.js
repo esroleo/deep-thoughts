@@ -16,6 +16,8 @@ import Home from './pages/Home';
 // });
 // after react team created fix
 const client = new ApolloClient({
+  // this is seetting the enviroment to development as it is a 
+  // relative path?
   uri: '/graphql'
 });
 

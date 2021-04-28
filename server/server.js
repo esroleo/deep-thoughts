@@ -34,6 +34,7 @@ app.use(express.json());
 
 // Serve up static assets
 // Back end code to serve up React front-end code in production
+// 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
 }
